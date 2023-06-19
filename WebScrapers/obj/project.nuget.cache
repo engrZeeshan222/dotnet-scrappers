@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FC+nst4x5Mvr0oA1NMFLKC+rZWK0D88niK8xRK4fdTo1S2+SfkTiRWbmahPUd/1+hflRxWt3yLhKESGOeniL1g==",
+  "success": true,
+  "projectFilePath": "Z:\\MyData\\dotnet-scrappers\\WebScrapers\\WebScrapers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hp\\.nuget\\packages\\htmlagilitypack\\1.11.48\\htmlagilitypack.1.11.48.nupkg.sha512"
+  ],
+  "logs": []
+}
