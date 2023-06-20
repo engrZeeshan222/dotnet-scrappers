@@ -25,7 +25,7 @@ public class Program {
         static async Task Main(string[] args)
         {
             var html = await GetHtml();
-            var data = ParseHtmlUsingHtmlAgilityPack(html);
+            var urls = ScrapUrls(html);
         }
 
         // get html
@@ -33,7 +33,7 @@ public class Program {
         {
         try{
             var client = new HttpClient();
-            var domReponse =  await client.GetStringAsync("https://github.com/AhmedTarekHasan");
+            var domReponse =  await client.GetStringAsync("https://www.junaidjamshed.com/online-edition/woman/stitched-collection.html");
             
             
             if(domReponse == null){
@@ -57,36 +57,72 @@ public class Program {
         }
 
 
-        private static List<ScrappedData> ParseHtmlUsingHtmlAgilityPack(string html)
+        private static List<ScrappedData> ScrapUrls(string html)
         {
-            var htmlDoc = new HtmlDocument();
+            try
+            {var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
 
-            var repositories =
+            var scrappedProducts =
                 htmlDoc
                     .DocumentNode
-                    .SelectNodes("//div[@class='js-pinned-items-reorder-container']/ol/li/div/div");
+                    .SelectNodes("//a[@class='product-item-link']");
 
-            // Console.WriteLine("repositories : {0}",repositories);
-            // List<(string RepositoryName, string Description)> data = new();
-            List<ScrappedData> data = new List<ScrappedData>();
 
-            // foreach (var repo in repositories)
-            // {
-            //     var name = repo.SelectSingleNode("div/div/span/a").InnerText;
-            //     var description = repo.SelectSingleNode("p").InnerText;
-            //     Console.WriteLine(name,description);
-            //     data.Add((name, description));
-            data.Add(new ScrappedData("Zeeshan","This is a boy"));
-            foreach(var d in data){
-                Console.WriteLine("Data");
-                Console.WriteLine(d.Name);
-                Console.WriteLine(d.Description);
+            List<ScrappedData> finalProductsList = new List<ScrappedData>();
+            var internalProductArray = new object[]{
+                new object(),
+                new object(),
+                new object()
+            };
+           
+            foreach (var product  in scrappedProducts)
+            {
+                string url = product.GetAttributeValue("href", "");
+                url = url.Length > 0 ? url.Trim() : "";
+                
+                if(url != null){
+                    
+                    // Practise Array Also here 
+                    for(int i=0; i<internalProductArray.Length; i++){
+                        Console.WriteLine(internalProductArray[i]);
+                    }
+                }
+                Console.WriteLine(url);
             }
-            // }
 
-            return data;
+
+        return finalProductsList;
+        }catch(Exception e){
+            Console.WriteLine(new {
+                status = false,
+                message = e.Message,
+                stackTrace = e.StackTrace,
+                source = e.Source
+            });
         }
+        return null;
+        }
+
+        // private static List<object> ScrapProductDescription(Array urls){
+        //     try{
+            // Practise List Here
+
+        //         return new List<object>();
+        //     }catch(Exception e){
+        //     var exceptionData = new
+        //             {
+        //                 Message = e.Message,
+        //                 StackTrace = e.StackTrace,
+        //                 Source = e.Source,
+        //                 GetType = e.GetType().ToString(),
+        //                 ToString = e.ToString()
+        //             };
+                
+                                        
+        //     }
+
+        // }
 }
 
 

@@ -2,10 +2,12 @@ public class ScrappedData {
     private string name;
     private string description; 
 
+    private string url;
     // Constructor 
-    public ScrappedData (string name ,string description){
+    public ScrappedData (string url,string name ,string description){
         this.name = name;
         this.description = description;
+        this.url = url;
     }
 
     public string Name{
@@ -16,5 +18,10 @@ public class ScrappedData {
     public string Description{
         get { return description;}
         set {  description= value; }
+    }
+
+    public string Url{
+        get{return url;}
+        set{url= value;}
     }
 }
