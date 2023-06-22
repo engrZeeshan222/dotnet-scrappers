@@ -18,6 +18,7 @@ Virtual Browser:
     Puppeteer Sharp
 */
 
+using System.Collections.ObjectModel;
 using HtmlAgilityPack;
 //  Console.WriteLine("Welcome to Web Scraping!");
 
@@ -70,11 +71,7 @@ public class Program {
 
 
             List<ScrappedData> finalProductsList = new List<ScrappedData>();
-            var internalProductArray = new object[]{
-                new object(),
-                new object(),
-                new object()
-            };
+            var internalProductArray = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
            
             foreach (var product  in scrappedProducts)
             {
@@ -85,7 +82,57 @@ public class Program {
                     
                     // Practise Array Also here 
                     for(int i=0; i<internalProductArray.Length; i++){
-                        Console.WriteLine(internalProductArray[i]);
+                         Console.WriteLine(internalProductArray[i]);
+
+                         // Using for each loop 
+                         foreach(object obj in internalProductArray){
+                            Console.WriteLine("foreach");
+                            Console.WriteLine("obj :{0}", obj);
+                         }
+
+                         //Array Properties
+
+                         //-----------Read Only Raper ----------
+                         int[] array = { 1, 2, 3, 4, 5 };
+
+                        ReadOnlyCollection<int> readOnlyCollection = Array.AsReadOnly(array);
+
+                        // Accessing elements in the read-only collection
+                        Console.WriteLine(readOnlyCollection[0]);  // Output: 1
+                        Console.WriteLine(readOnlyCollection[3]);  // Output: 4
+
+                        // Modifying the original array
+                        array[2] = 99;
+
+                        // Accessing elements in the read-only collection after modifying the original array
+                        Console.WriteLine(readOnlyCollection[2]);  // Output: 99
+
+                        // Trying to modify the read-only collection
+                        // readOnlyCollection[0] = 100;  // This will cause a runtime NotSupportedException
+
+
+
+                        //--------------------------- Element Searching -------------------------
+                        int[] sortedArray = { 2, 4, 6, 8, 12, 14, 16, 18 };
+                        int targetObject = 10;
+
+                        int startIndex = 2;
+                        int length = 5;
+
+                        int index = Array.BinarySearch(sortedArray, startIndex, length, targetObject);
+
+                        if (index >= 0)
+                        {
+                            Console.WriteLine($"Object found at index {index}");
+                        }
+                        else
+                        {
+                            int insertionPoint = ~index;
+                            Console.WriteLine($"Object not found. Should be inserted at index {insertionPoint}");
+                            Console.WriteLine(index);
+                        }
+
+                        
                     }
                 }
                 Console.WriteLine(url);
@@ -100,9 +147,9 @@ public class Program {
                 stackTrace = e.StackTrace,
                 source = e.Source
             });
+            return null;
         }
-        return null;
-        }
+    }
 
         // private static List<object> ScrapProductDescription(Array urls){
         //     try{
