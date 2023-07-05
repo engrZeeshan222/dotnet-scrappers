@@ -132,6 +132,35 @@ public class Program {
                             Console.WriteLine(index);
                         }
 
+
+                        // --------copy vs cloning 
+                        // Copy 
+                        var source = new object[] { "Ally", "Bishop", 1 };
+                        var target = new string[3];
+
+                        try
+                        {
+                        source.CopyTo(target, 0);
+                        Console.WriteLine(source);
+                        }
+                        catch (InvalidCastException)
+                        {
+                        foreach (var element in target)
+                        {
+                            Console.WriteLine(element);
+                        }
+                        }
+
+
+
+                        // clone 
+                        var source1 = new[] { "Ally", "Bishop", "Billy" };
+                        var target1 = (string[])source1.Clone();
+                        foreach (var element in target1)
+                        {
+                            Console.WriteLine(element);
+                        }
+
                         
                     }
                 }
