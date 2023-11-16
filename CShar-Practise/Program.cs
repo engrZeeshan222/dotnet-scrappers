@@ -167,18 +167,101 @@ public class Pragim
         Console.WriteLine("Printing EVEN Numbers");
 
         // Retrieve and print even numbers from the array
-        for (int i = 0; i < EvenNumbers.Length; i++)
+        for (int i3 = 0; i3 < EvenNumbers.Length; i3++)
         {
-            Console.WriteLine(EvenNumbers[i]);
+            Console.WriteLine(EvenNumbers[i3]);
         }
 
         Console.WriteLine("Printing ODD Numbers");
 
         // Retrieve and print odd numbers from the array
-        for (int i = 0; i < OddNumbers.Length; i++)
+        for (int i4 = 0; i4 < OddNumbers.Length; i4++)
         {
-            Console.WriteLine(OddNumbers[i]);
+            Console.WriteLine(OddNumbers[i4]);
         }
+
+        //------------------------------------------------------------------------------------------------------------------
+        // if/else
+        Console.WriteLine("Enter Your Number");
+        int Usernumber = int.Parse(Console.ReadLine());
+        if (Usernumber == 1)
+        {
+            Console.WriteLine("Dear User Your Number is 1");
+        }
+
+        else if (Usernumber == 2)
+        {
+            Console.WriteLine("Dear User Your Number is 2");
+        }
+        else if (Usernumber == 3)
+        {
+            Console.WriteLine("Dear User Your Number is 3");
+        }
+        else if (Usernumber == 4)
+        {
+            Console.WriteLine("Dear User Your Number is 4");
+        }
+        else if (Usernumber == 5)
+        {
+            Console.WriteLine("Dear User Your Number is 5");
+        }
+        else
+        {
+            Console.WriteLine("Dear User Your Number is Not Between 1-5");
+        }
+
+        //----------------- Loops
+        int loop = 1;
+        while (loop <= 3)
+        {
+            int j = 1;
+            while (j <= 3)
+            {
+                Console.WriteLine("This is portion of loop - while");
+                Console.WriteLine(loop + " " + j);
+                j++;
+            }
+            loop++;
+        }
+
+        //=------------------------------------------------------------------------------------- do while loop
+        int idw = 1;
+
+        do
+        {
+            Console.WriteLine("This is portion of do while--");
+            int jdw = 1;
+
+            do
+            {
+                Console.WriteLine(idw + " " + jdw);
+                jdw++;
+            } while (jdw <= 3);
+            idw++;
+        } while (idw <= 3);
+
+        //---------------------------------------------------------------- for loop
+        for (int ifor = 1; ifor <= 3; ifor++)
+        {
+            Console.WriteLine("This is inside of for loop!!");
+            for (int jfor = 1; jfor <= 3; jfor++)
+            {
+                Console.WriteLine(ifor + " " + jfor);
+            }
+        }
+
+        //----------------------------- Continue
+        for (int icon = 1; icon <= 10; icon++)
+        {
+            if (icon == 5)
+            {
+                Console.WriteLine("This is going to continue from 5 and will skip code below it");
+                continue;
+            }
+            Console.WriteLine(icon);
+        }
+
+        //--------------------------------------------------------------- 
         Console.ReadKey();  
     }
 }
