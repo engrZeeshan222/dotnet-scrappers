@@ -107,6 +107,78 @@ public class Pragim
 
         // Coalsaing operator example
         string isNumbernumberCoalsaing = numberCoalsaing ?? null;
+        Console.WriteLine("Number is", isNumbernumberCoalsaing);
+        //-----------------------------------------------------------------------------------------------------
+        // Nullable types
+
+        int AvailableTickets;
+        int? TicketsOnSale = null;
+
+        if (TicketsOnSale == null)
+        {
+            AvailableTickets = 0;
+        }
+        else
+        {
+            AvailableTickets = (int)TicketsOnSale;
+        }
+
+        Console.WriteLine("Available Tickets={0}", AvailableTickets);
+        //----------------------------------------------------------------------------------------------------------
+        // Using Coalsing Operator
+        int AvailableTickets1;
+        int? TicketsOnSale1 = null;
+
+        //Using null coalesce operator ??
+        AvailableTickets1 = TicketsOnSale1 ?? 0;
+
+        Console.WriteLine("Available Tickets={0}", AvailableTickets1);
+
+        //-------------------------------------------------------------------------------------------------------------
+        //Part 7 - C# Tutorial - Datatype conversions
+        float f = 100.25F;
+
+        // Cannot implicitly convert float to int.
+        // Fractional part will be lost. Float is a
+        // bigger datatype than int, so there is
+        // also a possiblity of overflow exception
+        // int i = f;
+
+        // Use explicit conversion using cast () operator
+        int i1 = (int)f;
+        Console.WriteLine(i1);
+
+        // OR use Convert class
+        int i2 = Convert.ToInt32(f);
+
+        Console.WriteLine(i2);
+
+        //--------------------------------------------------------------------------------------------------------------
+        // Arrays
+        // Initialize and assign values in different lines
+        int[] EvenNumbers = new int[3];
+        EvenNumbers[0] = 0;
+        EvenNumbers[1] = 2;
+        EvenNumbers[2] = 4;
+
+        // Initialize and assign values in the same line
+        int[] OddNumbers = { 1, 3, 5 };
+
+        Console.WriteLine("Printing EVEN Numbers");
+
+        // Retrieve and print even numbers from the array
+        for (int i = 0; i < EvenNumbers.Length; i++)
+        {
+            Console.WriteLine(EvenNumbers[i]);
+        }
+
+        Console.WriteLine("Printing ODD Numbers");
+
+        // Retrieve and print odd numbers from the array
+        for (int i = 0; i < OddNumbers.Length; i++)
+        {
+            Console.WriteLine(OddNumbers[i]);
+        }
         Console.ReadKey();  
     }
 }
