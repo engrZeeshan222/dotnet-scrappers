@@ -261,8 +261,39 @@ public class Pragim
             Console.WriteLine(icon);
         }
 
-        //--------------------------------------------------------------- 
+        //---------------------------------------------------------------  Classes
+        Circle c1 = new Circle(5);
+        float Area = c1.ClacArea();
+        Console.WriteLine("Area {0}", Area);
+
+        Circle c2 = new Circle(6);
+        float Area2 = c2.ClacArea();
+        Console.WriteLine("Area {0}", Area2);
         Console.ReadKey();  
     }
+
+    public class Circle
+    {
+        static float _PI = 3.141f;
+        private readonly int _Radius;
+
+        public Circle(int Radius)
+        {
+            this._Radius = Radius;
+        }
+
+        public float ClacArea()
+        {
+            return Circle._PI * this._Radius * this._Radius;
+
+        }
+
+        //Destruror 
+        ~Circle()
+        {
+            //Clean up Code
+        }
+    }
+
 }
 
