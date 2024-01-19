@@ -304,6 +304,9 @@ public class Pragim
         {
             Console.WriteLine(ex.Message);
         }
+
+        // call generics
+        MainClass.MainC();
         Console.ReadKey();
         //====================================================================================================================
     }
@@ -405,6 +408,7 @@ public class Pragim
     {
         Console.WriteLine("SampleMethodThree Invoked");
     }
+
 }
 
 //------------------------------------------------------ Exceptions 
@@ -425,5 +429,28 @@ public class UserAlreadyLoggedInException : Exception
     public UserAlreadyLoggedInException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {
+    }
+}
+//-------------------------------------------------------- Generics
+public class MainClass
+{
+    public static void MainC()
+    {
+        bool Equal = Calculator.AreEqual<int>(2, 1);
+        if (Equal)
+        {
+            Console.WriteLine("Equal");
+        }
+        else
+        {
+            Console.WriteLine("Not Equal");
+        }
+    }
+}
+public class Calculator
+{
+    public static bool AreEqual<T>(T value1, T value2)  // function is operating on type T, so all T will be of same type...........
+    {
+        return value1.Equals(value2);
     }
 }
