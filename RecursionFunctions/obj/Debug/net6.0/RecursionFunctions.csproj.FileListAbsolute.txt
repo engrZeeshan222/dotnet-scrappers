@@ -1,0 +1,15 @@
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\bin\Debug\net6.0\RecursionFunctions.exe
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\bin\Debug\net6.0\RecursionFunctions.deps.json
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\bin\Debug\net6.0\RecursionFunctions.runtimeconfig.json
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\bin\Debug\net6.0\RecursionFunctions.dll
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\bin\Debug\net6.0\RecursionFunctions.pdb
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.csproj.AssemblyReference.cache
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.GeneratedMSBuildEditorConfig.editorconfig
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.AssemblyInfoInputs.cache
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.AssemblyInfo.cs
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.csproj.CoreCompileInputs.cache
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.dll
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\refint\RecursionFunctions.dll
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.pdb
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\RecursionFunctions.genruntimeconfig.cache
+Z:\MyData\dotnet-scrappers-C--practice\RecursionFunctions\obj\Debug\net6.0\ref\RecursionFunctions.dll

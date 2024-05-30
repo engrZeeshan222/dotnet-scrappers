@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+
+public class Facility
+{
+    public string Name { get; set; }
+    public double OH { get; set; }
+    public List<Facility> Subfacilities { get; set; }
+
+    public Facility(string name, double oh)
+    {
+        Name = name;
+        OH = oh;
+        Subfacilities = new List<Facility>();
+    }
+
+    public void AddSubfacility(Facility subfacility)
+    {
+        Subfacilities.Add(subfacility);
+    }
+
+    //public double CalculateOH()
+    //{
+    //    double totalOH = OH;
+    //    foreach (var subfacility in Subfacilities)
+    //    {
+    //        totalOH += subfacility.CalculateOH();
+    //    }
+    //    return totalOH;
+    //}
+
+    public void DisplayHierarchy(int depth)
+    {
+        Console.WriteLine($"{new string(' ', depth * 2)}{Name} (OH: {OH})");
+        foreach (var subfacility in Subfacilities)
+        {
+            subfacility.DisplayHierarchy(depth + 1);
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Create EHR facility hierarchy
+        Facility division = new Facility("Division", 100);
+        Facility department = new Facility("Department", 50);
+        Facility program = new Facility("Program", 30);
+        Facility site1 = new Facility("Site 1", 20);
+        Facility site2 = new Facility("Site 2", 20);
+
+        program.AddSubfacility(site1);
+        program.AddSubfacility(site2);
+
+        department.AddSubfacility(program);
+        division.AddSubfacility(department);
+
+        // Display hierarchy and calculate OH
+        Console.WriteLine("Facility Hierarchy:");
+        division.DisplayHierarchy(0);
+
+        //double totalOH = division.CalculateOH();
+        //Console.WriteLine($"\nTotal Overhead: {totalOH}");
+        Console.ReadLine();
+    }
+}

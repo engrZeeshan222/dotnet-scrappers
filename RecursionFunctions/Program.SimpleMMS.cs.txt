@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+
+public class Module
+{
+    public string Name { get; set; }
+    public List<Module> ModuleDependencies { get; set; }
+
+    public Module(string name)
+    {
+        Name = name;
+        ModuleDependencies = new List<Module>();
+    }
+
+    public void AddSubmodule(Module submodule)
+    {
+        ModuleDependencies.Add(submodule);
+    }
+
+    public void DisplayHierarchy(int depth)
+    {
+        //Console.WriteLine($"{new string(' ', depth * 2)}{Name}");
+        foreach (var submodule in ModuleDependencies)
+        {
+            Console.WriteLine($"MM-ALM {submodule.Name}");
+            submodule.DisplayHierarchy(depth + 1);
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Module root = new Module("Root");
+
+        Module module1 = new Module("Module 1");
+        Module module2 = new Module("Module 2");
+
+        Module submodule1_1 = new Module("Submodule 1.1");
+        Module submodule1_1_1 = new Module("Submodule 1.1.1");
+        Module submodule1_1_2 = new Module("Submodule 1.1.2");
+        Module submodule1_1_3 = new Module("Submodule 1.1.3");
+        Module submodule1_1_4 = new Module("Submodule 1.1.4");
+        Module submodule1_1_5 = new Module("Submodule 1.1.5");
+        Module submodule1_2 = new Module("Submodule 1.2");
+
+        Module submodule2_1 = new Module("Submodule 2.1");
+
+
+        submodule1_1.AddSubmodule(submodule1_1_1);
+        submodule1_1.AddSubmodule(submodule1_1_2);
+        submodule1_1.AddSubmodule(submodule1_1_3);
+        submodule1_1.AddSubmodule(submodule1_1_4);
+        submodule1_1.AddSubmodule(submodule1_1_5);
+
+        module1.AddSubmodule(submodule1_1);
+        module1.AddSubmodule(submodule1_2);
+
+        module2.AddSubmodule(submodule2_1);
+
+        root.AddSubmodule(module1);
+        root.AddSubmodule(module2);
+
+        // Displaying hierarchy
+        Console.WriteLine("Module Hierarchy:");
+        root.DisplayHierarchy(0);
+        
+        Console.ReadLine();
+    }
+}
+
+
+//root 
+//    M1
+//       M1.1
+//       M1.2
+//    M2
+//       M2.1

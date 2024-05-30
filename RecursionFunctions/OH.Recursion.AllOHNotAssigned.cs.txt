@@ -1,0 +1,166 @@
+﻿//using System;
+//using System.Collections.Generic;
+
+//public class OhNode
+//{
+//    public int Id { get; set; }
+//    public int ParentId { get; set; }
+//    public string Title { get; set; }
+//    public List<OhNode> Children { get; set; }
+
+//    public OhNode(int id, int parentId, string title)
+//    {
+//        Id = id;
+//        ParentId = parentId;
+//        Title = title;
+//        Children = new List<OhNode>();
+//    }
+
+//    public void AddChild(OhNode child)
+//    {
+//        Children.Add(child);
+//    }
+
+//    public static void DisplayHierarchy(OhNode node, int depth)
+//    {
+//        Console.WriteLine($"{new string(' ', depth * 2)}{node.Title}");
+//        foreach (var child in node.Children)
+//        {
+//            DisplayHierarchy(child, depth + 1);
+//        }
+//    }
+
+//    public static List<OhNode> FlattenHierarchy(OhNode node)
+//    {
+//        List<OhNode> flattenedNodes = new List<OhNode>();
+//        FlattenHierarchyRecursive(node, flattenedNodes);
+//        return flattenedNodes;
+//    }
+
+//    private static void FlattenHierarchyRecursive(OhNode node, List<OhNode> flattenedNodes)
+//    {
+//        flattenedNodes.Add(node);
+//        foreach (var child in node.Children)
+//        {
+//            FlattenHierarchyRecursive(child, flattenedNodes);
+//        }
+//    }
+//}
+
+//public class Program
+//{
+//    public static void Main(string[] args)
+//    {
+//        // Create OH hierarchy
+//        OhNode root = new OhNode(1, 0, "Root");
+//        OhNode node1 = new OhNode(2, 0, "Node 1");
+//        OhNode node2 = new OhNode(3, 0, "Node 2");
+//        OhNode node3 = new OhNode(4, 2, "Node 1.1");
+//        OhNode node4 = new OhNode(5, 2, "Node 1.2");
+//        OhNode node5 = new OhNode(6, 3, "Node 2.1");
+
+//        root.AddChild(node1);
+//        root.AddChild(node2);
+//        node1.AddChild(node3);
+//        node1.AddChild(node4);
+//        node2.AddChild(node5);
+
+//        // Display hierarchy
+//        Console.WriteLine("OH Hierarchy:");
+//        OhNode.DisplayHierarchy(root, 0);
+
+//        // Flatten hierarchy
+//        //List<OhNode> flattenedNodes = OhNode.FlattenHierarchy(root);
+//        //Console.WriteLine("\nFlattened Hierarchy:");
+//        //foreach (var node in flattenedNodes)
+//        //{
+//        //    Console.WriteLine(node.Title);
+//        //}
+
+//        Console.ReadLine();
+//    }
+//}
+
+
+
+//---------------------------------------- With Out Root Node ---------------------
+using System;
+using System.Collections.Generic;
+
+public class OhNode
+{
+    public int Id { get; set; }
+    public int ParentId { get; set; }
+    public string Title { get; set; }
+    public List<OhNode> Children { get; set; }
+
+    public OhNode(int id, int parentId, string title)
+    {
+        Id = id;
+        ParentId = parentId;
+        Title = title;
+        Children = new List<OhNode>();
+    }
+
+    public void AddChild(OhNode child)
+    {
+        Children.Add(child);
+    }
+
+    public static void DisplayHierarchy(OhNode node, int depth)
+    {
+        Console.WriteLine($"{new string(' ', depth * 2)}{node.Title}");
+        foreach (var child in node.Children)
+        {
+            DisplayHierarchy(child, depth + 1);
+        }
+    }
+
+    public static List<OhNode> FlattenHierarchy(OhNode node)
+    {
+        List<OhNode> flattenedNodes = new List<OhNode>();
+        FlattenHierarchyRecursive(node, flattenedNodes);
+        return flattenedNodes;
+    }
+
+    private static void FlattenHierarchyRecursive(OhNode node, List<OhNode> flattenedNodes)
+    {
+        flattenedNodes.Add(node);
+        foreach (var child in node.Children)
+        {
+            FlattenHierarchyRecursive(child, flattenedNodes);
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Create OH hierarchy without a root node
+        OhNode node1 = new OhNode(2, 0, "Node 1");
+        OhNode node2 = new OhNode(3, 0, "Node 2");
+        OhNode node3 = new OhNode(4, 2, "Node 1.1");
+        OhNode node4 = new OhNode(5, 2, "Node 1.2");
+        OhNode node5 = new OhNode(6, 3, "Node 2.1");
+
+        node1.AddChild(node3);
+        node1.AddChild(node4);
+        node2.AddChild(node5);
+
+        // Display hierarchy
+        Console.WriteLine("OH Hierarchy:");
+        OhNode.DisplayHierarchy(node1, 0);
+        OhNode.DisplayHierarchy(node2, 0);
+
+        // Flatten hierarchy (Not applicable in this case as there's no single root)
+        //List<OhNode> flattenedNodes = OhNode.FlattenHierarchy(root);
+        //Console.WriteLine("\nFlattened Hierarchy:");
+        //foreach (var node in flattenedNodes)
+        //{
+        //    Console.WriteLine(node.Title);
+        //}
+
+        Console.ReadLine();
+    }
+}
