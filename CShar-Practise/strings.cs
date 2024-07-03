@@ -212,30 +212,69 @@ Write a C# program to encrypt and decrypt strings using cryptographic algorithms
     {
         Console.WriteLine(nameof(StringSplitting));
 
-        //string firstName = "A quick brown fox jumps";
-        //string middleName = " ";
-        //string lastName = "over the lazy dog!";
-        //string fullNameByMethod = string.Concat(firstName, middleName, lastName);
+        string firstName = "A quick brown fox jumps";
+        string middleName = " ";
+        string lastName = "over the lazy dog!";
+        string fullNameByMethod = string.Concat(firstName, middleName, lastName);
 
-        //string[] splittedString = fullNameByMethod.Split(' ');   
-        //// using string method 
-        //Console.WriteLine($"splittedString : {splittedString}");
-        //foreach(string splittedString2 in splittedString)
-        //{
-        //    Console.WriteLine($"{nameof(splittedString2)} : {splittedString2}");
-        //}
-        //Console.WriteLine(Environment.NewLine);
-
-        int i, j, k = 1;
-        for (i = 1; i <= 10; i++)
+        string[] splittedString = fullNameByMethod.Split(' ');
+        // using string method 
+        Console.WriteLine($"splittedString : {splittedString}");
+        foreach (string splittedString2 in splittedString)
         {
-            for (j = 1; j < i + 1; j++)
-            {
-                Console.Write(k++ + " ");
-            }
-
-            Console.Write("\n");
+            Console.WriteLine($"{nameof(splittedString2)} : {splittedString2}");
         }
-        Console.ReadLine();
+        Console.WriteLine(Environment.NewLine);
+
     }
+
+    public static void CountOccuranceOfSpecificCharacter_Without_BuildIn_Method()
+    {
+        Console.WriteLine(nameof(CountOccuranceOfSpecificCharacter_Without_BuildIn_Method));
+
+        string firstName = "A quick brown fox jumps, happy friday with best wishes, wish you good luck, wish you happy morning";
+        string middleName = " ";
+        string lastName = "over the lazy dog!";
+        string fullNameByMethod = string.Concat(firstName, middleName, lastName);
+
+        char letter = 'w';
+        int occuranceCount = 0; 
+        for(int i = 0; i < fullNameByMethod.Length; i++) 
+        {
+            char element  = fullNameByMethod[i];    
+            if (element == letter) 
+            {
+                occuranceCount++;
+            }
+        }
+
+        Console.WriteLine($"occuranceCount : {occuranceCount}");
+        Console.WriteLine(Environment.NewLine);
+    }
+    
+    public static void CountOccuranceOfSpecificCharacter_With_BuildInMethod()
+    {
+        Console.WriteLine(nameof(CountOccuranceOfSpecificCharacter_With_BuildInMethod));
+
+        string firstName = "A quick brown fox jumps, happy friday with best wishes, wish you good luck, wish you happy morning";
+        string middleName = " ";
+        string lastName = "over the lazy dog!";
+        string fullNameByMethod = string.Concat(firstName, middleName, lastName);
+
+        char letter = 'w';
+        int occuranceCounter = 0;
+        int startingIndex = 0;
+        int indexOfLetter = fullNameByMethod.IndexOf(letter, startingIndex);
+        while (indexOfLetter != -1)
+        { 
+            Console.WriteLine($"{occuranceCounter} : {startingIndex}");
+            occuranceCounter++; 
+            startingIndex++;
+            Console.WriteLine($"{occuranceCounter} : {startingIndex}");
+
+        }
+        Console.WriteLine($"occuranceCounter : {occuranceCounter}");
+        Console.WriteLine(Environment.NewLine);
+    }
+
 }

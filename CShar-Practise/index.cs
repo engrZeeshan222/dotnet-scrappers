@@ -11,6 +11,8 @@ public class Index
         Strings.StringComparison();
         Strings.StringCaseConversion();
         Strings.StringSplitting();
+        Strings.CountOccuranceOfSpecificCharacter_Without_BuildIn_Method();
+        Strings.CountOccuranceOfSpecificCharacter_With_BuildInMethod();
 
         Console.WriteLine("End");
         Console.ReadLine();
