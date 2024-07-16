@@ -276,5 +276,4 @@ Write a C# program to encrypt and decrypt strings using cryptographic algorithms
         Console.WriteLine($"occuranceCounter : {occuranceCounter}");
         Console.WriteLine(Environment.NewLine);
     }
-
 }
