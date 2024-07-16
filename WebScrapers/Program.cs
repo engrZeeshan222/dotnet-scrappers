@@ -1,23 +1,4 @@
-﻿;// See https://aka.ms/new-console-template for more information
-
-
-// HtmlAgilityPack is an HTML parser written in C# to read/write DOM.
-// CsvHelper is a package that’s used to read and write CSV files.
-
-/**
-Performing Calls:
-    .NET HttpClient
-    RestSharp
-Parsing HTML:
-    Html Agility Pack (HAP)
-    CSQuery
-    AngleSharp
-Virtual Browser:
-    Headless Chrome
-    Selenium WebDriver
-    Puppeteer Sharp
-*/
-
+﻿
 using System.Collections.ObjectModel;
 using HtmlAgilityPack;
 //  Console.WriteLine("Welcome to Web Scraping!");
@@ -85,10 +66,10 @@ public class Program {
                          Console.WriteLine(internalProductArray[i]);
 
                          // Using for each loop 
-                         foreach(object obj in internalProductArray){
-                            Console.WriteLine("foreach");
-                            Console.WriteLine("obj :{0}", obj);
-                         }
+                         //foreach(object obj in internalProductArray){
+                         //   Console.WriteLine("foreach");
+                         //   Console.WriteLine("obj :{0}", obj);
+                         //}
 
                          //Array Properties
 
@@ -161,6 +142,11 @@ public class Program {
                             Console.WriteLine(element);
                         }
 
+                        Console.ReadLine(); 
+
+
+
+
                         
                     }
                 }
@@ -229,3 +215,28 @@ public  class CustomException : Exception
     }
 
 }
+
+
+/*
+ * 
+ * https://aka.ms/new-console-template for more information
+
+
+// HtmlAgilityPack is an HTML parser written in C# to read/write DOM.
+// CsvHelper is a package that’s used to read and write CSV files.
+
+/**
+Performing Calls:
+    .NET HttpClient
+    RestSharp
+Parsing HTML:
+    Html Agility Pack (HAP)
+    CSQuery
+    AngleSharp
+Virtual Browser:
+    Headless Chrome
+    Selenium WebDriver
+    Puppeteer Sharp
+*/
+
+*/
